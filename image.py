@@ -6,6 +6,8 @@ print(img.shape)
 
 population = []
 
+iterations = 10
+
 for k in range(10):
     t1 = []
     for i in range(len(img)):
@@ -21,11 +23,17 @@ def calcCost(mainimg , pop):
     t1 = []
     for k in range(10):
         temp = np.subtract(mainimg , pop[k])
+        temp = np.mean(temp)
         t1.append(temp)
     return t1
 
+def crossover(pop1 , pop2):
+    temp = pop2[:]
 
 population = np.array(population)
+
+cost = calcCost(img , population)
+print('Cost : ' , cost)
 
 print(population[0].shape)
 
